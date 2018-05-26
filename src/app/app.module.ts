@@ -1,9 +1,10 @@
+import { MultilingualModule } from './multilingual/multilingual.module';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { HttpClientModule } from '@angular/common/http'
 
 
 import { AppComponent } from './app.component';
-import { MultilingualService } from './multilingual/multilingual.service';
 
 
 @NgModule({
@@ -11,9 +12,9 @@ import { MultilingualService } from './multilingual/multilingual.service';
     AppComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    MultilingualModule
   ],
-  providers: [MultilingualService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

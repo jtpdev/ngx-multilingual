@@ -11,7 +11,7 @@ export class AppComponent {
   constructor(
     public multilingual: MultilingualService
   ) {
-    multilingual.path('/multilingual');
+    multilingual.path('assets/multilingual', "multi");
   }
 
 }

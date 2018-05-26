@@ -1,0 +1,20 @@
+[
+    {
+        "lang": "en",
+        "home": "Multilingual Home",
+        "hello": "Hello World",
+        "country": "United States"
+    },
+    {
+        "lang": "pt",
+        "home": "Página principal de Multilingual",
+        "hello": "Olá mundo",
+        "country": "Brasil"
+    },
+    {
+        "lang": "es",
+        "home": "Página principal de Multilingüe",
+        "hello": "Hola mundo",
+        "country": "España"
+    }
+]

@@ -19,7 +19,7 @@ export class MultilingualService {
       this.language = this.default || navigator.language || document.documentElement.lang;
       if (!this.language) throw new Error('Language must be defined');
     }
-    let url = path ? `${path}/${language}.json` : `${language}.json`;
+    let url = path ? `${path}/${this.language}.json` : `${this.language}.json`;
     this.http.get(url)
       .subscribe(
         result => {
@@ -28,7 +28,7 @@ export class MultilingualService {
         error => {
           if (this.language.indexOf('-') > -1) {
             this.language = this.language.split('-')[0];
-            url = path ? `${path}/${language}.json` : `${language}.json`;
+            url = path ? `${path}/${this.language}.json` : `${this.language}.json`;
             this.http.get(url)
               .subscribe(
                 result => {
@@ -44,11 +44,12 @@ export class MultilingualService {
   }
 
   get(key: string, lang?: string): string {
+    if (!this.dic) return;
     if (this.language == 'multi') {
       if (!lang) {
         throw new Error('Language can not be null when the service have multiple dictionaries.');
       }
-      const dic = this.dic[this.dic.indexOf(lang)];
+      const dic = this.dic[this.dic.map(d => d.lang).indexOf(lang)];
       if (dic) {
         return dic[key];
       } else {
