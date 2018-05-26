@@ -63,5 +63,55 @@ and
 
     }
 
+And create the **json** file:
 
-And done!
+    [
+        {
+            "lang": "en",
+            "home": "Multilingual Home",
+            "hello": "Hello World",
+            "country": "United States"
+        },
+        {
+            "lang": "pt",
+            "home": "Página principal de Multilingual",
+            "hello": "Olá mundo",
+            "country": "Brasil"
+        },
+        {
+            "lang": "es",
+            "home": "Página principal de Multilingüe",
+            "hello": "Hola mundo",
+            "country": "España"
+        }
+    ]
+
+# Another ways
+
+If you want to use diferents **json** files you can create a file like: **en.json**:
+
+    {
+        "home": "Multilingual Home",
+        "hello": "Hello World",
+        "country": "United States"
+    }
+
+and another like **pt.json**:
+
+    {
+        "home": "Página principal de Multilingual",
+        "hello": "Olá mundo",
+        "country": "Brasil"
+    }
+
+And you can set the language or not, if you don't set the language, the language of the navigator will be setted. Then you can change it:
+
+    multilingual.path('assets/multilingual', "multi");
+    
+to:
+
+    multilingual.path('assets/multilingual', "en");
+    
+or just it, to use the navigator language or the **html** language.
+
+    multilingual.path('assets/multilingual');
