@@ -12,10 +12,9 @@ To install this, use:
 
 To use in your project import it in your module like that:
 
-    import { MultilingualModule } from './multilingual/multilingual.module';
+    import { MultilingualModule } from 'ngx-multilingual';
     import { BrowserModule } from '@angular/platform-browser';
     import { NgModule } from '@angular/core';
-    import { HttpClientModule } from '@angular/common/http'
 
 
     import { AppComponent } from './app.component';
