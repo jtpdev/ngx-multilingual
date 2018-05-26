@@ -1,27 +1,64 @@
 # NgxMultilingual
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.7.3.
+This is a package to make it easier to create a multilingual project.
 
-## Development server
+## Install
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+To install this, use:
 
-## Code scaffolding
+> npm install --save ngx-multilingual
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+## Use
 
-## Build
+To use in your project import it in your module like that:
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `-prod` flag for a production build.
+    import { MultilingualModule } from './multilingual/multilingual.module';
+    import { BrowserModule } from '@angular/platform-browser';
+    import { NgModule } from '@angular/core';
+    import { HttpClientModule } from '@angular/common/http'
 
-## Running unit tests
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+    import { AppComponent } from './app.component';
 
-## Running end-to-end tests
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
+    @NgModule({
+      declarations: [
+        AppComponent
+      ],
+      imports: [
+        BrowserModule,
+        MultilingualModule
+      ],
+      bootstrap: [AppComponent]
+    })
+    export class AppModule { }
 
-## Further help
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+and use in your component:
+
+    <h3>{{ multilingual.get('home', 'pt') }}</h3>
+    <p>{{ multilingual.get('hello', 'en') }}</p>
+    <p>{{ multilingual.get('country', 'es') }}</p>
+
+and
+
+    import { Component } from '@angular/core';
+    import { MultilingualService } from './multilingual/multilingual.service';
+
+    @Component({
+      selector: 'app-root',
+      templateUrl: './app.component.html',
+      styleUrls: ['./app.component.css']
+    })
+    export class AppComponent {
+
+      constructor(
+        public multilingual: MultilingualService
+      ) {
+        multilingual.path('assets/multilingual', "multi");
+      }
+
+    }
+
+
+And done!
